@@ -1,11 +1,14 @@
+#!/usr/bin/env python
+import sys
+
 WAV_HEADER = 44
 SIXTEEN_BIT_SAMPLE = 2
 NEGATIVE_OFFSET = 32768
 MAX_VALUE = 65535
 
-with open("./assets/sin.wav", "rb") as buf:
+with open(sys.argv[1], "rb") as buf:
     header = buf.read(WAV_HEADER)
-    output = open("./assets/output.txt", "w")
+    output = open(sys.argv[2], "w")
     string_to_write = "["
     i = 0
     while (i < 128):
