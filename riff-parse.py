@@ -8,7 +8,6 @@ MAX_VALUE = 65535
 
 with open(sys.argv[1], "rb") as buf:
     header = buf.read(WAV_HEADER)
-    output = open(sys.argv[2], "w")
     string_to_write = "["
     i = 0
     while (i < 128):
@@ -22,4 +21,6 @@ with open(sys.argv[1], "rb") as buf:
 
     string_to_write = string_to_write[:-2]
     string_to_write += "]"
+
+with open(sys.argv[2], "w") as output:
     output.write(string_to_write)
